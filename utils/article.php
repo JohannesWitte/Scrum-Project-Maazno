@@ -23,10 +23,10 @@ function valid_category_id($con, $c_id) {
  * gibt alle Attribute von artikel zurück
  *
  * @param  con: die Datenbankverbindung
- * @return object mysqli_result mit allen Attributen der Antwort
+ * @return object mysqli_result mit allen Attributen der Antwort.
  */
-function get_all_article_($con){
-    $sql = "SELECT `artikel_id`, `name`, `preis`, `bild`, `beschreibung`, `kategorie_id` FROM `artikel` WHERE `kategorie_id` = 4 ORDER BY artikel_id;";
+function get_all_article($con){
+    $sql = "SELECT `artikel_id`, `name`, `preis`, `bild`, `beschreibung`, `kategorie_id` FROM `artikel` ORDER BY artikel_id;";
 
     return mysqli_query($con, $sql);
 }
@@ -65,18 +65,6 @@ function get_one_article($con, $artikel_id){
 */ 
 function search_article($con, $search) {
     $sql = "SELECT * FROM artikel WHERE artikel.name LIKE '%$search%'";
-
-    return mysqli_query($con, $sql);
-}
-
-/**
- * gibt alle Attribute von artikel zurück
- *
- * @param  con: die Datenbankverbindung
- * @return object mysqli_result mit allen Attributen der Antwort.
- */
-function get_all_article($con){
-    $sql = "SELECT `artikel_id`, `name`, `preis`, `bild`, `beschreibung`, `kategorie_id` FROM `artikel` ORDER BY artikel_id;";
 
     return mysqli_query($con, $sql);
 }
